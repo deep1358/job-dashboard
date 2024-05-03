@@ -1,7 +1,10 @@
+import useFetchJobs from "../Utils/helper/useFetchJobs";
 import "./App.css";
 
 function App() {
-    return <div>Initial template ready</div>;
+    useFetchJobs();
+
+    return <div>Hello</div>;
 }
 
 export default App;
