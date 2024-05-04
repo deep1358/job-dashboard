@@ -1,10 +1,11 @@
 import useFetchJobs from "../Utils/helper/useFetchJobs";
 import "./App.css";
+import JobsDashboard from "./Components/JobsDashboard";
 
 function App() {
     useFetchJobs();
 
-    return <div>Hello</div>;
+    return <JobsDashboard />;
 }
 
 export default App;
