@@ -43,7 +43,7 @@ const JobCard = ({ job }) => {
     // Set MinSalary to 0 if null
     const salaryRange =
         Object.keys(job).length > 0
-            ? `₹${job.minJdSalary ?? 0} - ${job.maxJdSalary} LPA`
+            ? `$${job.minJdSalary ?? 0}K - ${job.maxJdSalary}K`
             : "";
 
     // Capitalize all loaction and set remote to India remote
@@ -83,11 +83,13 @@ const JobCard = ({ job }) => {
                         {/* Company details */}
                         <Box sx={JobCompany}>
                             {/* Company logo */}
-                            <img width="50" alt="logo" src="/weekday.jpg" />
+                            <img width="50" alt="logo" src={job.logoUrl} />
                             <div>
                                 <div>
                                     {/* Company name */}
-                                    <h3 style={JobCompanyName}>Weekday</h3>
+                                    <h3 style={JobCompanyName}>
+                                        {job.companyName}
+                                    </h3>
                                     {/* Job role */}
                                     <h2 style={JobRole}>{job.jobRole}</h2>
                                 </div>

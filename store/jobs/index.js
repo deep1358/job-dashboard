@@ -10,4 +10,11 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { setJobs, toggleLoading, setError } = slice.actions;
+export const {
+    setJobs,
+    toggleLoading,
+    setError,
+    setFilters,
+    updateFiltersValues,
+    changeFilteredJobs,
+} = slice.actions;

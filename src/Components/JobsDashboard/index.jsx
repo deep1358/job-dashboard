@@ -12,12 +12,12 @@ import { CircularProgress, Container } from "@mui/material";
 const JobsDashboard = () => {
     const [jobs, setJobs] = useState([]);
 
-    const { totalJobs, loading } = useSelector((state) => state.jobs);
+    const { filteredJobs, loading } = useSelector((state) => state.jobs);
 
     // Fetch jobs initially
     useEffect(() => {
-        setJobs(totalJobs);
-    }, [totalJobs]);
+        setJobs(filteredJobs);
+    }, [filteredJobs]);
 
     return (
         // Main Job dashboard container
@@ -31,8 +31,8 @@ const JobsDashboard = () => {
                 justifyContent="center"
                 alignItems="center"
             >
-                {jobs?.map((job) => (
-                    <JobCard key={job.jdUid} job={job} />
+                {jobs?.map((job, index) => (
+                    <JobCard key={`${job.jdUid}-${index}`} job={job} />
                 ))}
             </Grid>
 
