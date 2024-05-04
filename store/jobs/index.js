@@ -10,4 +10,4 @@ const slice = createSlice({
 
 export default slice.reducer;
 
-export const { setJobs, setJobsCount, toggleLoading, setError } = slice.actions;
+export const { setJobs, toggleLoading, setError } = slice.actions;

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { memo, useState } from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import {
@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
 
-import JobModal from "./Modal/index.jsx";
+import JobModal from "./Modal";
 
 import randomDays from "../../../../Utils/helper/randomDays";
 import {
@@ -160,4 +160,5 @@ const JobCard = ({ job }) => {
     );
 };
 
-export default JobCard;
+// Memoizing jobcard, so that it won't rerender unnecessarily
+export default memo(JobCard);

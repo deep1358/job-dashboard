@@ -5,12 +5,14 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
 import JobCard from "./JobCard";
-import { JobDashboardContainer } from "./styles.js";
+import { JobDashboardContainer, JobFetchLoader } from "./styles.js";
+import JobCardSkeleton from "./JobCard/JobCardSkeleton.jsx";
+import { CircularProgress, Container } from "@mui/material";
 
 const JobsDashboard = () => {
     const [jobs, setJobs] = useState([]);
 
-    const { totalJobs } = useSelector((state) => state.jobs);
+    const { totalJobs, loading } = useSelector((state) => state.jobs);
 
     // Fetch jobs initially
     useEffect(() => {
@@ -33,6 +35,16 @@ const JobsDashboard = () => {
                     <JobCard key={job.jdUid} job={job} />
                 ))}
             </Grid>
+
+            {/* Skeleton for initial load only */}
+            {loading && jobs.length === 0 && <JobCardSkeleton />}
+
+            {/* Loader for fetching jobs when scrolling */}
+            <Container sx={JobFetchLoader}>
+                {loading && jobs.length !== 0 && (
+                    <CircularProgress disableShrink />
+                )}
+            </Container>
         </Box>
     );
 };
